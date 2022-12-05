@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,18 @@ use App\Http\Controllers\Admin\NewsController;
 |
 */
 
-Route::controller(NewsControlle::class)->plefix('admin')->group(function(){
-    Route::get('news/create','add');
+
+
+Route::controller(NewsController::class)->prefix('admin')->group(function() {
+    Route::get('news/create', 'add');
 });
 
-use App\Http\Controllers\Admin\ProfileController;
 
-Route::controller(XXX::class)->group(function(){
-    Route::get('AAA','bbb');
+Route::controller(AAAController::class)->group(function(){
+    Route::get('XXX','bbb');
 });
 
-Route::controller(ProfileController::class)->plefix('admin')->group(function(){
+Route::controller(ProfileController::class)->prefix('admin')->group(function() {
     Route::get('profile/create','add');
     Route::get('profile/edit','edit');
 });
