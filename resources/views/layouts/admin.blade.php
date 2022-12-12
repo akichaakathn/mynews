@@ -36,6 +36,8 @@
                         </ul>
                 
                         <ul class ="navbar-nav">
+                            @guest
+                                <li><a class="nav-link" herf="{{ route('login') }}">{{ __('messages.login') }}</a></li>
                         </ul>
                     </div>
                 </div>
