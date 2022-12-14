@@ -36,3 +36,8 @@ Route::controller(NewsController::class)->prefix('admin')->group(function() {
         Route::get('news/create','add')->middleware('auth');
 });
 
+Route::controller(ProfileController::class)->prefix('admin/profile')->group(function() {
+    Route::get('create','add')->middleware('auth');
+    Route::get('edit','add')->middleware('auth');
+});
+

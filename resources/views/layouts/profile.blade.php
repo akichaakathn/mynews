@@ -36,6 +36,25 @@
                         </ul>
                 
                         <ul class ="navbar-nav">
+                    @guest
+                        <li><a class="nav-link"href="{{ route('login') }}">{{ __('massages.login') }}</a></li>
+                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggler" href="#" id="navbarDropdown" role="button" date-bs-toggle="dropdown" aria-expanded="false">
+                                    {{Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledy="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();document.getElementByld('logout-form').submit();">
+                                    {{ __('massages.logout') }}
+                                </a>
+                                
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csfr
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
                         </ul>
                     </div>
                 </div>
