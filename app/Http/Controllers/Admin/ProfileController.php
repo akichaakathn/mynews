@@ -15,8 +15,7 @@ class ProfileController extends Controller
     
     public function create(Request $request)
     {
-        $this->validate($reqest, Profile::$rules);
-        
+        $this->validate($request, Profile::$rules);
         $profile = new Profile;
         $form = $request->all();
         
@@ -24,6 +23,7 @@ class ProfileController extends Controller
         
         $profile->fill($form);
         $profile->save();
+        
         return redirect('admin/profile/create');
     }
     

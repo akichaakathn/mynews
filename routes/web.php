@@ -19,9 +19,7 @@ use App\Http\Controllers\Admin\ProfileController;
 
 
 
-Route::controller(AAAController::class)->group(function(){
-    Route::get('XXX','bbb');
-});
+
 
 Route::controller(ProfileController::class)->prefix('admin')->group(function() {
     Route::get('profile/create','add');
@@ -37,9 +35,9 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
         Route::post('news/create','create')->name('news.create');
 });
 
-Route::controller(ProfileController::class)->prefix('admin.profile')->name('admin.')->middleware('auth')->group(function () {
+Route::controller(ProfileController::class)->prefix('admin/profile')->name('admin.')->middleware('auth')->group(function () {
         Route::get('create','add')->name('profile.add');
         Route::post('create','create')->name('profile.create');
-        Route::post('edit','update')->name('profile.create');
+        Route::post('edit','update')->name('profile.update');
 });
 
