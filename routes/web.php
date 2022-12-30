@@ -15,17 +15,6 @@ use App\Http\Controllers\Admin\ProfileController;
 */
 
 
-
-
-
-
-
-
-Route::controller(ProfileController::class)->prefix('admin')->group(function() {
-    Route::get('profile/create','add');
-    Route::get('profile/edit','edit');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -46,5 +35,9 @@ Route::controller(ProfileController::class)->prefix('admin/profile')->name('admi
         Route::post('edit','update')->name('profile.update');
 });
 
+use App\Http\Controllers\NewsController as PublicNewsController;
+Route::get('/', [PublicNewsController::class, 'index'])->name('news.index');
 
+use App\Http\Controllers\ProfileController as PublicProfileController;
+Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
 
